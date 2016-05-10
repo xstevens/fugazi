@@ -4,7 +4,7 @@ this is merely meant to help developers generate some certificates so they can t
 in a local environment with TLS enabled. If you need further re-iteration see [disclaimer](#Disclaimer).
 
 ## Generating certificates
-You can take a look at bin/generate-certs.sh to see if you want to specify any of the environment variables 
+You can take a look at `bin/generate-certs.sh` to see if you want to specify any of the environment variables 
 or change anything. Otherwise, just run it:
 
 ```
