@@ -54,7 +54,6 @@ openssl ca -passin pass:"$PASSWORD" -cert ca.crt -keyfile ca.key -gencrl -out ca
 
 # make a Java JKS keystore from client certs
 echo "Importing certs to Java keystore(s)..."
-#keytool -importkeystore -srckeystore client.p12 -srcstoretype pkcs12 -srcstorepass "$PASSWORD" -destkeystore client.jks -deststorepass "$PASSWORD"
 
 keytool -keystore server-truststore.jks -alias CARoot -import -file ca.crt -deststorepass "$PASSWORD" -noprompt
 keytool -keystore client-truststore.jks -alias CARoot -import -file ca.crt -deststorepass "$PASSWORD" -noprompt
