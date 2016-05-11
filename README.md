@@ -4,7 +4,7 @@
 X509 certificates that are only useful for local development. This is not a best-practices repo, 
 this is merely meant to help developers generate some certificates so they can test their software 
 in a local environment with TLS enabled. If you need further re-iteration on this point see the 
-[disclaimer](#Disclaimer).
+[disclaimer](#disclaimer).
 
 ## Generating certificates
 You can take a look at `bin/generate-certs.sh` to see if you want to specify any of the environment variables 
