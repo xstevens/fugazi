@@ -11,7 +11,7 @@ if [ -d "$ssl_cert_dir" ]; then
     cd $ssl_cert_dir
     # remove old certs
     echo "Removing old certs..."
-    rm $ssl_cert_dir/*.{key,crt,csr,p12,srl,jks}
+    rm $ssl_cert_dir/*.{key,crt,csr,p12,jks,crl}
 else
     mkdir "$ssl_cert_dir"
     cd $ssl_cert_dir
