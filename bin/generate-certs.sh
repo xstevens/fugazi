@@ -32,13 +32,13 @@ openssl req -new -sha256 -passin pass:"$PASSWORD" -key ca.key -x509 -days 1095 -
 # generate server key/cert
 openssl genrsa -aes256 -passout pass:"$PASSWORD" -out server.key 2048
 openssl req -new -sha256 -passin pass:"$PASSWORD" -key server.key -out server.csr -subj "/C=US/ST=$STATE/L=$LOCALITY/O=$ORGANIZATION/OU=$ORGANIZATION_UNIT/CN=$COMMON_NAME"
-openssl x509 -req -passin pass:"$PASSWORD" -days 365 -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt
+openssl x509 -req -sha256 -passin pass:"$PASSWORD" -days 365 -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt
 openssl pkcs12 -export -name server -passin pass:"$PASSWORD" -passout pass:"$PASSWORD" -out server.p12 -inkey server.key -in server.crt -certfile ca.crt -noiter -nomaciter
 
 # generate client key/cert
 openssl genrsa -aes256 -passout pass:"$PASSWORD" -out client.key 2048
 openssl req -new -sha256 -passin pass:"$PASSWORD" -key client.key -out client.csr -subj "/C=US/ST=$STATE/L=$LOCALITY/O=$ORGANIZATION/OU=$ORGANIZATION_UNIT/CN=$COMMON_NAME"
-openssl x509 -req -passin pass:"$PASSWORD" -days 365 -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt
+openssl x509 -req -sha256 -passin pass:"$PASSWORD" -days 365 -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt
 openssl pkcs12 -export -name client -passin pass:"$PASSWORD" -passout pass:"$PASSWORD" -out client.p12 -inkey client.key -in client.crt -certfile ca.crt -noiter -nomaciter
 openssl rsa -in client.key -out client-nopass.key -passin pass:"$PASSWORD"
 
