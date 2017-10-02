@@ -40,3 +40,8 @@ correctly. If you already know what you're doing or have other methods, then fee
 
 ## Disclaimer
 For the love of God, never use anything like this for production use.
+
+## Projects for Production Deployments
+- [Let's Encrypt clients](https://letsencrypt.org/docs/client-options/)
+- [Vault](https://www.vaultproject.io/)
+- [cfssl](https://github.com/cloudflare/cfssl)
