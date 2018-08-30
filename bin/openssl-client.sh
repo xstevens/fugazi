@@ -15,4 +15,4 @@ then
 fi
 
 target_host=$1
-$OPENSSL_BIN s_client -connect $target_host -CAfile $ssl_cert_dir/ca.crt -showcerts -debug 
+$OPENSSL_BIN s_client -connect $target_host -CAfile $ssl_cert_dir/ca.pem -showcerts -debug 
