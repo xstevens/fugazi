@@ -31,7 +31,8 @@ echo "Importing certs to Java keystore(s)..."
 
 keytool -keystore server-truststore.jks -alias CARoot -import -file ca.pem -deststorepass "$PASSWORD" -noprompt
 keytool -keystore client-truststore.jks -alias CARoot -import -file ca.pem -deststorepass "$PASSWORD" -noprompt
+keytool -keystore test-truststore.jks -alias CARoot -import -file ca.pem -deststorepass 12345 -noprompt
 
 # convert to pkcs12 (Java can load pkcs12 as long as there is a password)
 openssl pkcs12 -export -name server -passout pass:"$PASSWORD" -out server.p12 -inkey server-key.pem -in server.pem -certfile ca.pem -noiter -nomaciter
-openssl pkcs12 -export -name server -passout pass:"$PASSWORD" -out client.p12 -inkey client-key.pem -in client.pem -certfile ca.pem -noiter -nomaciter
+#openssl pkcs12 -export -name server -passout pass:"$PASSWORD" -out client.p12 -inkey client-key.pem -in client.pem -certfile ca.pem -noiter -nomaciter
